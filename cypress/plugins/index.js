@@ -16,7 +16,19 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+const browserify = require('@cypress/browserify-preprocessor');
+const cucumber = require('cypress-cucumber-preprocessor').default;
+const resolve = require('resolve');
+
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
+    on('after:spec', (spec, results) => {
+        console.log(spec)
+    })
+
+    const options = {
+        ...browserify.defaultOptions,
+        typescript: resolve.sync('typescript', { baseDir: config.projectRoot }),
+    };
+    on("file:preprocessor", cucumber(options));
+    return config;
+};

@@ -2,15 +2,24 @@
   "name": "innso-tutorial-e2e",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "license": "ISC",
+  "author": "Brice Ruppen <brice.ruppen@innso.com>",
+  "keywords": [],
   "scripts": {
     "open": "cypress open",
     "tests": "cypress run"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "main": "cypress/support/index.ts",
   "devDependencies": {
-    "cypress": "^9.1.1"
+    "cypress": "^9.2.0",
+    "cucumber": "6",
+    "cypress-cucumber-preprocessor": "^4.3.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "mocha-junit-reporter": "^2.0.0",
+    "tsify": "^5.0.4",
+    "typescript": "^4.2.4"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
