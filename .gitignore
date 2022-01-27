@@ -1,1 +1,8 @@
 node_modules/
+/cypress/cucumber-json/
+/cypress/downloads/
+/cypress/reports/
+/cypress/screenshots/
+/cypress/videos/
+/.env
+/results.json

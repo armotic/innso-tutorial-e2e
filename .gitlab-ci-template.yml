@@ -1,0 +1,22 @@
+stages:
+  - build
+
+variables:
+  BUILD_IMAGE: $PRIVATE_REGISTRY/infrastructure-k8s/maven:deb11-mvn3.8.4-jdk.lts
+
+.build:npm:
+  cache:
+    key: npm
+    paths:
+      - .npm
+
+build:
+  image: $BUILD_IMAGE
+  stage: build
+  script:
+    - npm ci --cache $CI_PROJECT_DIR/.npm --prefer-offline
+    - npm run sync
+  only:
+    - main
+  tags:
+    - ci

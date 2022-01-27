@@ -1,3 +1,19 @@
 {
+  "baseUrl": "https://example.cypress.io/",
+  "env": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36"
+  },
+  "projectId": "",
+  "chromeWebSecurity": false,
+  "viewportWidth": 1200,
+  "viewportHeight": 800,
+  "defaultCommandTimeout": 12000,
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "spec, mocha-junit-reporter",
+    "mochaJunitReporterReporterOptions": {
+      "mochaFile": "cypress/reports/test-output-[hash].xml"
+    }
+  },
   "testFiles": ["**/*.spec.ts", "**/*.spec.js", "**/*.feature"]
 }

@@ -1,6 +1,14 @@
 /// <reference types="cypress" />
 
 declare namespace Cypress {
+  interface Chainable {
+    /**
+     * Custom command to select input element by name attribute.
+     * @example cy.input('username')
+     */
+    input(name: string): Chainable<JQuery<HTMLElement>>
+  }
+
   interface Chainable<Subject = any> {
     /**
      * Scopes all subsequent cy commands to within this iframe.
